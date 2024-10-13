@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"regexp"
 	"sort"
+	"strings"
 )
 
 func GroupAnagrams(words []string) map[string][]string {
@@ -13,20 +14,24 @@ func GroupAnagrams(words []string) map[string][]string {
 	//////////////////////////////
 
 	for _, val := range words {
-		if ok, err := regexp.MatchString(`^[a-z]+$`, val); !ok {
+		if ok, err := regexp.MatchString(`^[a-zA-z]+$`, val); !ok {
 			if err != nil {
 				panic("something wrong")
 			}
 			continue
 		}
+
+		val = strings.ToLower(val)
+
 		////////////////////////////////////////////////////////
 		if _, ok := valuesUnrepeat[val]; !ok {
 			valuesUnrepeat[val] = struct{}{}
 		} else {
 			continue
 		}
+
 		///////////////////////////////////////////////////////
-		arr := []byte(val)
+		arr := []rune(val)
 		sort.Slice(arr, func(i, j int) bool { return arr[i] < arr[j] })
 
 		group[string(arr)] = append(group[string(arr)], val)
@@ -37,7 +42,7 @@ func GroupAnagrams(words []string) map[string][]string {
 }
 
 func main() {
-	slc := []string{"listen", "silent", "enlist", "inlets", "google", "gogole", "listen"}
+	slc := []string{"listen", "siL11ent", "enlist", "inlets", "goOgle%", "gogole", "listen"}
 	fmt.Println(GroupAnagrams(slc))
 
 }
