@@ -7,6 +7,12 @@ import (
 	"strings"
 )
 
+/*
+Работа с анограммами:
+Напишите функцию, которая принимает строку и возвращает map, где ключом является слово,
+а значением — список всех анаграмм этого слова, найденных в строке.
+*/
+
 func WorkingWithAnagrams(startStr string) map[string][]string {
 
 	resultMap := make(map[string][]string)

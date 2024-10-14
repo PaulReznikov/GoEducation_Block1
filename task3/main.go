@@ -7,6 +7,13 @@ import (
 	"strings"
 )
 
+/*
+Напишите функцию GroupAnagrams(words []string) map[string][]string, которая принимает срез строк и группирует их в карту,
+где каждый ключ — это отсортированная версия слова (в виде строки), а значение — срез всех анаграмм этого слова.
+Пример: []string{"listen", "silent", "enlist", "inlets", "google", "gogole"}
+должно вернуть map[string][]string{"eilnst": {"listen", "silent", "enlist", "inlets"}, "eggloo": {"google", "gogole"}}.
+*/
+
 func GroupAnagrams(words []string) map[string][]string {
 	group := make(map[string][]string)
 	//////////////////////////////

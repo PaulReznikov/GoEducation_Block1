@@ -2,6 +2,12 @@ package main
 
 import "fmt"
 
+/*
+Напишите функцию CommonCharacters(a, b string) []rune, которая принимает две строки и возвращает срез рун, которые встречаются в обеих строках.
+Каждая руна должна появиться в результате только один раз, даже если она встречается несколько раз в обеих строках.
+Пример: CommonCharacters("hello", "world") должно вернуть []rune{'o', 'l'}.
+*/
+
 func CommonCharacters(a, b string) []rune {
 	var resSlc []rune
 	m := make(map[rune]struct{})
