@@ -15,10 +15,12 @@ import (
 func CompressString(s string) string {
 	str := ""
 	counter := 1
+	runes := []rune(s)
 
-	for i, val := range s {
+	fmt.Println(len(s))
+	for i, val := range runes {
 
-		if i == len([]rune(s))-1 {
+		if i == len(runes)-1 {
 			str += string(val)
 			if counter > 1 {
 				str += strconv.Itoa(counter)
@@ -26,7 +28,7 @@ func CompressString(s string) string {
 			continue
 		}
 
-		if val == []rune(s)[i+1] {
+		if val == runes[i+1] { //??? for i, val := range str
 			counter++
 		} else {
 			str += string(val)
@@ -43,6 +45,6 @@ func CompressString(s string) string {
 }
 
 func main() {
-	res := CompressString("aaabbcccca")
+	res := CompressString("hééllo")
 	fmt.Println(res)
 }

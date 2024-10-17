@@ -28,7 +28,7 @@ func CountingWords(words string) map[string]int {
 }
 
 func main() {
-	str := ".?I, am go I!!!?? restricted: ;directory machine PC am ....I PC? go!?"
+	str := "...,?!;;"
 	fmt.Println(CountingWords(str))
 	//fmt.Println(strings.Trim(str, ".,:;!?"))
 

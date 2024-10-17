@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 /*
 Напишите функцию CommonCharacters(a, b string) []rune, которая принимает две строки и возвращает срез рун, которые встречаются в обеих строках.
@@ -11,8 +14,8 @@ import "fmt"
 func CommonCharacters(a, b string) []rune {
 	var resSlc []rune
 	m := make(map[rune]struct{})
-	for _, valA := range a {
-		for _, valB := range b {
+	for _, valA := range strings.ToLower(a) {
+		for _, valB := range strings.ToLower(b) {
 			if valA == valB {
 				m[valA] = struct{}{}
 			}

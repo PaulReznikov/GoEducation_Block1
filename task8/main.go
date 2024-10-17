@@ -14,18 +14,26 @@ func remove(slc []int, idx int) []int {
 }
 
 func FilteringAndSumm(slc []int) int {
+	//summ := 0
+	//
+	//for i := 0; i < len(slc); i++ {
+	//	if slc[i] < 0 {
+	//		slc = remove(slc, i)
+	//		i--
+	//		continue
+	//	}
+	//
+	//	summ += slc[i] * slc[i]
+	//}
+	//
+	//return summ
+
 	summ := 0
-
-	for i := 0; i < len(slc); i++ {
-		if slc[i] < 0 {
-			slc = remove(slc, i)
-			i--
-			continue
+	for _, num := range slc {
+		if num >= 0 {
+			summ += num * num
 		}
-
-		summ += slc[i] * slc[i]
 	}
-
 	return summ
 
 }

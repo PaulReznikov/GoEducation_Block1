@@ -49,6 +49,6 @@ func WorkingWithAnagrams(startStr string) map[string][]string {
 }
 
 func main() {
-	str := " listen silEnt enlist inlets google! gogole    inlets"
+	str := " listen silent! enlist inlets gogole google123"
 	fmt.Println(WorkingWithAnagrams(str))
 }

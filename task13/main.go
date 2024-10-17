@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"sort"
+	"strings"
 )
 
 /*
@@ -16,10 +17,12 @@ func MergeSlicesStrings(strSlc1, strSlc2 []string) []string {
 	var resSlc []string
 
 	for _, val1 := range strSlc1 {
-		m[val1] = struct{}{}
+		val1 = strings.ToLower(val1)
+		m[strings.ToLower(val1)] = struct{}{}
 	}
 
 	for _, val2 := range strSlc2 {
+		val2 = strings.ToLower(val2)
 		if _, ok := m[val2]; !ok {
 			m[val2] = struct{}{}
 		} else {
@@ -37,7 +40,7 @@ func MergeSlicesStrings(strSlc1, strSlc2 []string) []string {
 }
 
 func main() {
-	slc1 := []string{"aaa", "B", "advR", "bb", "AdvR"}
-	slc2 := []string{"XX", "aaa", "cc", "bb"}
+	slc1 := []string{"x", "y"}
+	slc2 := []string{"x", "y"}
 	fmt.Println(MergeSlicesStrings(slc1, slc2))
 }

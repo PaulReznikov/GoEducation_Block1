@@ -14,19 +14,22 @@ import (
 */
 
 func Sort2DSlice(slc2D [][]int) []int {
-	resultSlc := make([]int, len(slc2D))
+	resultSlc := make([]int, 0, len(slc2D))
 
 	for i := range slc2D {
+		if len(slc2D[i]) == 0 {
+			continue
+		}
 		max := slc2D[i][0]
 		for _, val := range slc2D[i] {
 			if val > max {
 				max = val
 			}
 		}
-		resultSlc[i] = max
+		resultSlc = append(resultSlc, max)
 	}
 
-	sort.Slice(resultSlc, func(i, j int) bool { return resultSlc[i] < resultSlc[j] })
+	sort.Ints(resultSlc)
 
 	return resultSlc
 
